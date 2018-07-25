@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Добавление жанра </h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <input class="btn btn-success" type="submit" value="Сохранить" />
+    {{ form_end(form) }}
+
+    <ul class="list-inline mt-3">
+        <li class="list-inline-item">
+            <a class="btn btn-light" href="{{ path('genre_index') }}">
+                Назад
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

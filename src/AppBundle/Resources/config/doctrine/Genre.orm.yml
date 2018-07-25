@@ -1,0 +1,14 @@
+AppBundle\Entity\Genre:
+    type: entity
+    table: genre
+    id:
+        id:
+            type: integer
+            generator: { strategy: IDENTITY }
+    fields:
+        name:
+            type: string
+    oneToMany:
+        books:
+            targetEntity: AppBundle\Entity\Book
+            mappedBy: genre

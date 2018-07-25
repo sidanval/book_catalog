@@ -1,0 +1,15 @@
+app_book_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Book:index" }
+
+app_book:
+    resource: "@AppBundle/Resources/config/routing/book.yml"
+    prefix:   /book
+
+app_genre:
+    resource: "@AppBundle/Resources/config/routing/genre.yml"
+    prefix:   /genre
+
+app_author:
+    resource: "@AppBundle/Resources/config/routing/author.yml"
+    prefix:   /author

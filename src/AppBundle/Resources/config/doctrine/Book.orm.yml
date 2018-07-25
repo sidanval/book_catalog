@@ -1,0 +1,36 @@
+AppBundle\Entity\Book:
+    type: entity
+    table: book
+    repositoryClass: AppBundle\Repository\BookRepository
+    lifecycleCallbacks:
+        prePersist: [setCreatedAtValue]
+    id:
+        id:
+            type: integer
+            generator: { strategy: IDENTITY }
+    fields:
+        name:
+            type: string
+        released_at:
+            type: date
+        created_at:
+            type: datetime
+        rating:
+            type: float
+    manyToOne:
+        genre:
+            targetEntity: Genre
+            inversedBy: books
+            joinColumn:
+                name: genre_id
+                referencedColumnName: id
+                onDelete: RESTRICT
+                onUpdate: RESTRICT
+        author:
+            targetEntity: Author
+            inversedBy: books
+            joinColumn:
+                name: author_id
+                referencedColumnName: id
+                onDelete: RESTRICT
+                onUpdate: RESTRICT

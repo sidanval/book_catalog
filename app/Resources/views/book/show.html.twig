@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Книга</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ book.name }}</td>
+            </tr>
+            <tr>
+                <th>Опубликована</th>
+                <td>{% if book.releasedat %}{{ book.releasedat|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Добавлена</th>
+                <td>{% if book.createdat %}{{ book.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Рейтинг</th>
+                <td>{{ book.rating }}</td>
+            </tr>
+            <tr>
+                <th>Автор</th>
+                <td>
+                    {% if book.author %}
+                        <a href="{{ path('author_show', {id: book.author.id}) }}">
+                            {{ book.author.fullName }}
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Жанр</th>
+                <td>
+                    {% if book.genre %}
+                        <a href="{{ path('genre_show', {id: book.genre.id}) }}">
+                            {{ book.genre.name }}
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="list-inline mt-3">
+        <li class="list-inline-item">
+            <a class="btn btn-light" href="{{ path('book_index') }}">Назад</a>
+        </li>
+        {% if is_granted('book_edit', book) %}
+            <li class="list-inline-item">
+                <a class="btn btn-success" href="{{ path('book_edit', { 'id': book.id }) }}">Редактировать</a>
+            </li>
+        {% endif %}
+        {% if is_granted('book_delete', book) %}
+            <li class="list-inline-item">
+                {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Удалить">
+                {{ form_end(delete_form) }}
+            </li>
+        {% endif %}
+    </ul>
+
+{% endblock %}

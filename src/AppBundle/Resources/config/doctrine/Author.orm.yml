@@ -1,0 +1,19 @@
+AppBundle\Entity\Author:
+    type: entity
+    table: author
+    id:
+        id:
+            type: integer
+            generator: { strategy: IDENTITY }
+    fields:
+        full_name:
+            type: string
+        birthday:
+            type: date
+        gender:
+            type: smallint
+            default: 0
+    oneToMany:
+        books:
+            targetEntity: AppBundle\Entity\Book
+            mappedBy: author

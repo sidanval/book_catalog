@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Жанры</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Книги</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td><a href="{{ path('genre_show', { 'id': genre.id }) }}">{{ genre.id }}</a></td>
+                <td>{{ genre.name }}</td>
+                <td>
+                    <a href="{{ path('book_genre', {id: genre.id}) }}">
+                        Книги ({{ genre.books | length }})
+                    </a>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('genre_show', { 'id': genre.id }) }}">просмотр</a>
+                        </li>
+                        {% if is_granted('genre_edit', genre) %}
+                        <li>
+                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">редактирование</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('genre_create') %}
+        <a class="btn btn-success" href="{{ path('genre_new') }}">Добавить новый жанр</a>
+    {% endif %}
+
+{% endblock %}

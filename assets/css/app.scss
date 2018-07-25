@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/bootstrap";
+
+.form-search {
+  .form-group {
+    margin-bottom: 0.5rem !important;
+    margin-right: 2rem;
+
+    label {
+      margin-right: 0.5rem;
+    }
+  }
+}

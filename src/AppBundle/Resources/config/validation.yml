@@ -1,0 +1,6 @@
+AppBundle\Entity\Book:
+    properties:
+        rating:
+            - Range:
+                min: 0
+                max: 10
