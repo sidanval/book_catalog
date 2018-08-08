@@ -6,3 +6,14 @@ AppBundle\Entity\User:
             type: integer
             generator:
                 strategy: IDENTITY
+    manyToMany:
+        favouriteBooks:
+            targetEntity: AppBundle\Entity\Book
+            joinTable:
+                name: user_favourite_book
+                joinColumns:
+                    user_id:
+                        regerencedColumnName: id
+                inverseJoinColumns:
+                    book_id:
+                        referencedColumnName: id

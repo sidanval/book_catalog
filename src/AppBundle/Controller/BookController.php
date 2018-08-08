@@ -45,7 +45,7 @@ class BookController extends Controller
 
         $books = $repository->byAuthor($author);
 
-        return $this->render('book/index.html.twig', array(
+        return $this->render('book/author.html.twig', array(
             'books'     => $books,
             'author'    => $author,
         ));
@@ -59,7 +59,7 @@ class BookController extends Controller
 
         $books = $repository->byGenre($genre);
 
-        return $this->render('book/index.html.twig', array(
+        return $this->render('book/genre.html.twig', array(
             'books'     => $books,
             'genre'    => $genre,
         ));

@@ -1,0 +1,8 @@
+book_favourite_add:
+    path:     /add/{id}
+    defaults: { _controller: "AppBundle:BookFavourite:addBook" }
+    methods:  GET
+book_favourite_remove:
+    path:     /remove/{id}
+    defaults: { _controller: "AppBundle:BookFavourite:removeBook" }
+    methods:  GET

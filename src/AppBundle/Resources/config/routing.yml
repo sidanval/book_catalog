@@ -13,3 +13,7 @@ app_genre:
 app_author:
     resource: "@AppBundle/Resources/config/routing/author.yml"
     prefix:   /author
+
+app_book_favourite:
+    resource: "@AppBundle/Resources/config/routing/book-favourite.yml"
+    prefix:   /book-favourite

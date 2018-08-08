@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 /**
  * Book
  */
-class Book
+class Book extends \AppBundle\Model\Book
 {
     /**
      * @var integer

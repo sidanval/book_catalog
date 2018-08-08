@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Книги автора: {{ author.fullName }}</h1>
+
+    {{ include('book/table.html.twig', {books: books}) }}
+
+    {% if is_granted('book_create') %}
+        <a class="btn btn-success" href="{{ path('book_new') }}">Добавить книгу</a>
+    {% endif %}
+
+{% endblock %}
